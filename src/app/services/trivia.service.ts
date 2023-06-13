@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+interface TriviaCategory {
+  id: number;
+  name: string;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +15,9 @@ export class TriviaService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getTriviaCategories() {
-    return this.httpClient.get(this.triviaCategoriesUrl);
+  getTriviaCategories(): Observable<TriviaCategory[]> {
+    return this.httpClient.get<TriviaCategory[]>(
+      this.triviaCategoriesUrl
+    );
   }
 }
