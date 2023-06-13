@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 interface TriviaCategory {
   id: number;
@@ -16,8 +16,8 @@ export class TriviaService {
   constructor(private httpClient: HttpClient) {}
 
   getTriviaCategories(): Observable<TriviaCategory[]> {
-    return this.httpClient.get<TriviaCategory[]>(
-      this.triviaCategoriesUrl
-    );
+    return this.httpClient
+      .get<TriviaCategory[]>(this.triviaCategoriesUrl)
+      .pipe(map((res: TriviaCategory[]) => Object.values(res)));
   }
 }

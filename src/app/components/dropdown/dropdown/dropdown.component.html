@@ -4,7 +4,7 @@
     <div class="col-12 col-sm-5 mt-5 mb-2">
       <select class="form-select" aria-label="Default select example">
         <option selected>Select a category</option>
-        <option *ngFor="let tc of triviaCategories;">{{ tc.name }}</option>
+        <option *ngFor="let tc of triviaCategories;" [value]="tc">{{ tc.name }}</option>
       </select>
     </div>
     <div class="col-12 col-sm-5 mt-5 mb-2">

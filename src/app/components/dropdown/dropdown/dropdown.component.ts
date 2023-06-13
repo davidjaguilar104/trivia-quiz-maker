@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { TriviaService } from 'src/app/services/trivia.service';
 
 interface TriviaCategory {
@@ -17,11 +18,9 @@ export class DropdownComponent implements OnInit {
   constructor(private triviaService: TriviaService) {}
 
   ngOnInit() {
-    this.triviaService.getTriviaCategories().subscribe((data: TriviaCategory[]) => {
-      console.log(data);
+    this.triviaService.getTriviaCategories().subscribe((data) => {
       this.triviaCategories = data;
       console.log(this.triviaCategories);
-      this.triviaCategories = data;
     });
   }
 }
