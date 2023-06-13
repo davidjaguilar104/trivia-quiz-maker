@@ -15,9 +15,21 @@ export class TriviaService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getTriviaCategories(): Observable<TriviaCategory[]> {
-    return this.httpClient
-      .get<TriviaCategory[]>(this.triviaCategoriesUrl)
-      .pipe(map((res: TriviaCategory[]) => Object.values(res)));
+  getTriviaCategories() {
+    return this.httpClient.get<TriviaCategory[]>(this.triviaCategoriesUrl).pipe(
+      map((res) => {
+        const arr = [];
+
+        for (const key in res) {
+          console.log(key);
+          
+          if (res.hasOwnProperty(key)) {
+            arr.push({ ...res[key] });
+          }
+        }
+
+        return arr;
+      })
+    );
   }
 }
