@@ -7,7 +7,7 @@ interface TriviaCategory {
   name: string;
 }
 
-interface Response {
+interface TriviaApiResponse {
   trivia_categories: Array<TriviaCategory>;
 }
 
@@ -20,6 +20,6 @@ export class TriviaService {
   constructor(private httpClient: HttpClient) {}
 
   getTriviaCategories() {
-    return this.httpClient.get<Response>(this.triviaCategoriesUrl);
+    return this.httpClient.get<TriviaApiResponse>(this.triviaCategoriesUrl);
   }
 }

@@ -17,7 +17,7 @@ export class DropdownComponent implements OnInit {
 
   constructor(private triviaService: TriviaService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.triviaService.getTriviaCategories().subscribe((data) => {
       console.log(data.trivia_categories);
       this.triviaCategories = data.trivia_categories;
