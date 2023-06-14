@@ -2,13 +2,13 @@
   <!-- add g-0 to row if you want them touching like doc -->
   <div class="row">
     <div class="col-12 col-sm-5 mt-5 mb-2">
-      <select class="form-select" aria-label="Default select example">
+      <select class="form-select" aria-label="Default select example" id="categorySelect">
         <option selected>Select a category</option>
         <option *ngFor="let tc of triviaCategories;" [value]="tc">{{ tc.name }}</option>
       </select>
     </div>
     <div class="col-12 col-sm-5 mt-5 mb-2">
-      <select class="form-select" aria-label="Default select example">
+      <select class="form-select" aria-label="Default select example" id="difficultySelect">
         <option selected>Select difficulty</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="col-12 col-sm-2 mt-5 mb-2">
-      <button type="button" class="btn btn-secondary w-100">Create</button>
+      <button type="button" class="btn btn-secondary w-100" id="creatBtn">Create</button>
     </div>
   </div>
 </div>
