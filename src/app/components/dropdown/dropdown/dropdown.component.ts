@@ -23,4 +23,10 @@ export class DropdownComponent implements OnInit {
       this.triviaCategories = data.trivia_categories;
     });
   }
+
+  getQuestions() {
+    this.triviaService.getQuestions(9, 'easy').subscribe((data) => {
+      console.log(data.results);
+    });
+  }
 }

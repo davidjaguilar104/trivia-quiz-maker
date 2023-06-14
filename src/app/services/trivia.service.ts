@@ -7,8 +7,22 @@ interface TriviaCategory {
   name: string;
 }
 
+interface TriviaQuestion {
+  category: string;
+  type: string;
+  difficulty: string;
+  question: string;
+  correct_answer: string;
+  incorrect_answers: string[];
+}
+
 interface TriviaApiResponse {
   trivia_categories: Array<TriviaCategory>;
+}
+
+interface TriviaQuestionsApiResponse {
+  response_code: number;
+  results: TriviaQuestion[];
 }
 
 @Injectable({
@@ -21,5 +35,10 @@ export class TriviaService {
 
   getTriviaCategories() {
     return this.httpClient.get<TriviaApiResponse>(this.triviaCategoriesUrl);
+  }
+
+  getQuestions(category: number, difficulty: string) {
+    const triviaQuestionsAndAnswersUrl: string = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}`;
+    return this.httpClient.get<TriviaQuestionsApiResponse>(triviaQuestionsAndAnswersUrl);
   }
 }
