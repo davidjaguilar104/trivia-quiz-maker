@@ -23,7 +23,9 @@ export class TriviaService {
         for (const key in res) {
           console.log(key);
           
-          if (res.hasOwnProperty(key)) {
+          if (key === "trivia_categories") {
+            console.log(res[key]);
+            
             arr.push({ ...res[key] });
           }
         }
@@ -33,3 +35,4 @@ export class TriviaService {
     );
   }
 }
+
