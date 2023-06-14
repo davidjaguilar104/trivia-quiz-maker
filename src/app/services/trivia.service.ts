@@ -7,6 +7,10 @@ interface TriviaCategory {
   name: string;
 }
 
+interface Response {
+  trivia_categories: Array<TriviaCategory>;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,23 +20,6 @@ export class TriviaService {
   constructor(private httpClient: HttpClient) {}
 
   getTriviaCategories() {
-    return this.httpClient.get<TriviaCategory[]>(this.triviaCategoriesUrl).pipe(
-      map((res) => {
-        const arr = [];
-
-        for (const key in res) {
-          console.log(key);
-          
-          if (key === "trivia_categories") {
-            console.log(res[key]);
-            
-            arr.push({ ...res[key] });
-          }
-        }
-
-        return arr;
-      })
-    );
+    return this.httpClient.get<Response>(this.triviaCategoriesUrl);
   }
 }
-
