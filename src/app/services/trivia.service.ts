@@ -38,7 +38,7 @@ export class TriviaService {
   }
 
   getQuestions(category: number, difficulty: string) {
-    const triviaQuestionsAndAnswersUrl: string = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}`;
+    const triviaQuestionsAndAnswersUrl: string = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}&type=multiple`;
     return this.httpClient.get<TriviaQuestionsApiResponse>(triviaQuestionsAndAnswersUrl);
   }
 }
