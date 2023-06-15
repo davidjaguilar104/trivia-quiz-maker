@@ -27,7 +27,7 @@ export class DropdownComponent implements OnInit {
     });
   }
 
-  getQuestions() {
+  getQuestions(): void {
     const { category, difficulty } = this.dropdownForm.value;
     this.triviaService.getQuestions(category, difficulty).subscribe((data) => {
       console.log(data.results);
