@@ -34,6 +34,10 @@ export class QuizComponent {
     this.questionAnswers = combinedAnswers;
   }
 
+  randomizeAnswerOrder() {
+    // do logic here on combines answers
+  }
+
   checkAnswer(answer: Answer) {
     console.log(answer.isCorrect);
   }
