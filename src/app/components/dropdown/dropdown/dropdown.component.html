@@ -21,3 +21,20 @@
     </div>
   </form>
 </div>
+
+
+<div class="container" *ngIf="triviaQuestions.length > 0">
+  <div class="row" *ngFor="let tq of triviaQuestions;">
+    <div class="col-12">
+        <p>{{ tq.question }}</p>
+    </div>
+
+    <div class="row">
+      <p class="col-12 col-sm-3">{{ tq.correct_answer }}</p>
+      <p class="col-12 col-sm-3">{{ tq.incorrect_answers }}</p>
+      <p class="col-12 col-sm-3">{{ tq.incorrect_answers }}</p>
+      <p class="col-12 col-sm-3">{{ tq.incorrect_answers }}</p>
+    </div>
+    
+  </div>
+</div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
-import { TriviaCategory } from '../../../models';
+import { TriviaCategory, TriviaQuestion } from '../../../models';
 import { TriviaService } from '../../../services/trivia.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -11,6 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class DropdownComponent implements OnInit {
   triviaCategories: TriviaCategory[] = [];
+  triviaQuestions: TriviaQuestion[] = [];
   dropdownForm!: FormGroup;
 
   constructor(private triviaService: TriviaService) {}
@@ -31,8 +31,7 @@ export class DropdownComponent implements OnInit {
     const { category, difficulty } = this.dropdownForm.value;
     this.triviaService.getQuestions(category, difficulty).subscribe((data) => {
       console.log(data.results);
+      this.triviaQuestions = data.results;
     });
-    this.dropdownForm.controls['category'].setValue('');
-    this.dropdownForm.controls['difficulty'].setValue('');
   }
 }
