@@ -22,7 +22,7 @@ export class QuizComponent {
     this.combineQuestionAnswers();
   }
 
-  combineQuestionAnswers() {
+  combineQuestionAnswers(): void {
     const combinedAnswers: Answer[] = [];
     this.triviaQuestion.incorrect_answers.forEach((answer) => {
       combinedAnswers.push({ isCorrect: false, answer });
@@ -34,7 +34,7 @@ export class QuizComponent {
     this.questionAnswers = this.randomizeQuestionAnswers(combinedAnswers);
   }
 
-  randomizeQuestionAnswers(combinedAnswers: Answer[]) {
+  randomizeQuestionAnswers(combinedAnswers: Answer[]): Answer[] {
     let currentIndex = combinedAnswers.length,
       randomIndex;
 

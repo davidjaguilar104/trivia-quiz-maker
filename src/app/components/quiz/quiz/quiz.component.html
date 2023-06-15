@@ -1,12 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-        {{ triviaQuestion.question }}
-        
+      {{ triviaQuestion.question }}
     </div>
 
     <div class="col-12 col-sm-3" *ngFor="let qa of questionAnswers">
-        <p (click)="checkAnswer(qa)">{{ qa.answer }}</p>
+      <button (click)="checkAnswer(qa)">{{ qa.answer }}</button>
     </div>
   </div>
 </div>
