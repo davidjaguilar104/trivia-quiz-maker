@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownComponent } from './components/dropdown/dropdown/dropdown.component';
+import { QuizComponent } from './components/quiz/quiz/quiz.component';
 
 @NgModule({
-  declarations: [AppComponent, DropdownComponent],
+  declarations: [AppComponent, DropdownComponent, QuizComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

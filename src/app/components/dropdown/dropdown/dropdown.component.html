@@ -42,31 +42,8 @@
   </form>
 </div>
 
-<div class="container" *ngIf="triviaQuestions.length > 0">
-  <div class="row" *ngFor="let tq of triviaQuestions">
-    <div class="col-12">
-      <p>{{ tq.question }}</p>
-    </div>
-
-    <div class="col-12 col-md-3 mt-3 mt-md-0">
-      <button type="button" class="btn btn-success w-100">
-        {{ tq.correct_answer }}
-      </button>
-    </div>
-    <div class="col-12 col-md-3 mt-3 mt-md-0">
-      <button type="button" class="btn btn-success w-100">
-        {{ tq.incorrect_answers[0] }}
-      </button>
-    </div>
-    <div class="col-12 col-md-3 mt-3 mt-md-0">
-      <button type="button" class="btn btn-success w-100">
-        {{ tq.incorrect_answers[1] }}
-      </button>
-    </div>
-    <div class="col-12 col-md-3 mt-3 mt-md-0">
-      <button type="button" class="btn btn-success w-100">
-        {{ tq.incorrect_answers[2] }}
-      </button>
-    </div>
+<div *ngIf="triviaQuestions.length > 0">
+  <div *ngFor="let tc of triviaQuestions">
+    <app-quiz [triviaQuestion]="tc"></app-quiz>
   </div>
 </div>
