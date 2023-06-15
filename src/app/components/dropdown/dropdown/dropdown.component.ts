@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { TriviaCategory } from '../../../models';
 import { TriviaService } from '../../../services/trivia.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dropdown',
@@ -10,6 +11,7 @@ import { TriviaService } from '../../../services/trivia.service';
 })
 export class DropdownComponent implements OnInit {
   triviaCategories: TriviaCategory[] = [];
+  dropdownForm!: FormGroup;
 
   constructor(private triviaService: TriviaService) {}
 
@@ -17,6 +19,11 @@ export class DropdownComponent implements OnInit {
     this.triviaService.getTriviaCategories().subscribe((data) => {
       console.log(data.trivia_categories);
       this.triviaCategories = data.trivia_categories;
+    });
+
+    this.dropdownForm = new FormGroup({
+      category: new FormControl('', Validators.required),
+      difficulty: new FormControl('', Validators.required),
     });
   }
 
