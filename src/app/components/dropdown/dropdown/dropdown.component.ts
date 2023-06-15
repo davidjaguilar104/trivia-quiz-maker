@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
-import { TriviaCategory } from 'src/app/models';
-import { TriviaService } from 'src/app/services/trivia.service';
+import { TriviaCategory } from '../../../models';
+import { TriviaService } from '../../../services/trivia.service';
 
 @Component({
   selector: 'app-dropdown',
