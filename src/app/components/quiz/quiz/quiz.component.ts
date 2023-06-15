@@ -31,11 +31,27 @@ export class QuizComponent {
     const answer = this.triviaQuestion.correct_answer;
     combinedAnswers.push({ isCorrect: true, answer });
     console.log(combinedAnswers);
-    this.questionAnswers = combinedAnswers;
+    this.questionAnswers = this.randomizeQuestionAnswers(combinedAnswers);
   }
 
-  randomizeAnswerOrder() {
-    // do logic here on combines answers
+  randomizeQuestionAnswers(combinedAnswers: Answer[]) {
+    let currentIndex = combinedAnswers.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [combinedAnswers[currentIndex], combinedAnswers[randomIndex]] = [
+        combinedAnswers[randomIndex],
+        combinedAnswers[currentIndex],
+      ];
+    }
+
+    return combinedAnswers;
   }
 
   checkAnswer(answer: Answer) {
