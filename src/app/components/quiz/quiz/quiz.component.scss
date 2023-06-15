@@ -1,0 +1,10 @@
+.answer-btn {
+  background-color: white;
+  color: green;
+  border: 1px solid green;
+  border-radius: 5px;
+  &:hover {
+    background-color: green;
+    color: white;
+  }
+}
