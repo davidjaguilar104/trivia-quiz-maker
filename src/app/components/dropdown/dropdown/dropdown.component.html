@@ -2,13 +2,25 @@
   <!-- add g-0 to row if you want them touching like doc -->
   <form class="row" [formGroup]="dropdownForm">
     <div class="col-12 col-sm-5 mt-5 mb-2">
-      <select class="form-select" aria-label="Default select example" id="categorySelect" formControlName="category">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        id="categorySelect"
+        formControlName="category"
+      >
         <option value="">Select a category</option>
-        <option *ngFor="let tc of triviaCategories;" [ngValue]="tc.id">{{ tc.name }}</option>
+        <option *ngFor="let tc of triviaCategories" [ngValue]="tc.id">
+          {{ tc.name }}
+        </option>
       </select>
     </div>
     <div class="col-12 col-sm-5 mt-5 mb-2">
-      <select class="form-select" aria-label="Default select example" id="difficultySelect" formControlName="difficulty">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        id="difficultySelect"
+        formControlName="difficulty"
+      >
         <option value="">Select difficulty</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
@@ -17,24 +29,46 @@
     </div>
 
     <div class="col-12 col-sm-2 mt-5 mb-2">
-      <button type="submit" class="btn btn-secondary w-100" id="creatBtn" [disabled]="!dropdownForm.valid" (click)="getQuestions()">Create</button>
+      <button
+        type="submit"
+        class="btn btn-secondary w-100"
+        id="creatBtn"
+        [disabled]="!dropdownForm.valid"
+        (click)="getQuestions()"
+      >
+        Create
+      </button>
     </div>
   </form>
 </div>
 
-
 <div class="container" *ngIf="triviaQuestions.length > 0">
-  <div class="row" *ngFor="let tq of triviaQuestions;">
+  <div class="row" *ngFor="let tq of triviaQuestions">
     <div class="col-12">
-        <p>{{ tq.question }}</p>
+      <p>{{ tq.question }}</p>
     </div>
 
-    <div class="row">
-      <p class="col-12 col-sm-3">{{ tq.correct_answer }}</p>
-      <p class="col-12 col-sm-3">{{ tq.incorrect_answers }}</p>
-      <p class="col-12 col-sm-3">{{ tq.incorrect_answers }}</p>
-      <p class="col-12 col-sm-3">{{ tq.incorrect_answers }}</p>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12 col-sm-3">
+          <button class="btn btn-success w-100">{{ tq.correct_answer }}</button>
+        </div>
+        <div class="col-12 col-sm-3">
+          <button class="btn btn-success w-100">
+            {{ tq.incorrect_answers[0] }}
+          </button>
+        </div>
+        <div class="col-12 col-sm-3">
+          <button class="btn btn-success w-100">
+            {{ tq.incorrect_answers[1] }}
+          </button>
+        </div>
+        <div class="col-12 col-sm-3">
+          <button class="btn btn-success w-100">
+            {{ tq.incorrect_answers[2] }}
+          </button>
+        </div>
+      </div>
     </div>
-    
   </div>
 </div>
