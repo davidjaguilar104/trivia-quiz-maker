@@ -25,15 +25,14 @@ export class DropdownComponent implements OnInit {
       category: new FormControl('', Validators.required),
       difficulty: new FormControl('', Validators.required),
     });
-
-    console.log(this.dropdownForm);
   }
 
   getQuestions() {
-    console.log(this.dropdownForm);
-
-    this.triviaService.getQuestions(9, 'easy').subscribe((data) => {
+    const { category, difficulty } = this.dropdownForm.value;
+    this.triviaService.getQuestions(category, difficulty).subscribe((data) => {
       console.log(data.results);
     });
+    this.dropdownForm.controls['category'].setValue('');
+    this.dropdownForm.controls['difficulty'].setValue('');
   }
 }
