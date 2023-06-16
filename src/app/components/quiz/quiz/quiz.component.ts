@@ -16,6 +16,7 @@ interface Answer {
 export class QuizComponent {
   @Input() triviaQuestion: TriviaQuestion = <TriviaQuestion>{};
   questionAnswers: Answer[] = <Answer[]>[];
+  questionAnswered: boolean = false;
 
   constructor(private quizService: QuizService) {}
 
@@ -62,10 +63,18 @@ export class QuizComponent {
   }
 
   toggleIsSelected(answer: Answer) {
+    this.checkIfQuestionIsAnswered();
+
     this.questionAnswers.forEach((answer) => {
       answer.isSelected = false;
     });
     answer.isSelected = true;
-    this.quizService.activatedEmitter.next(true);
+  }
+
+  checkIfQuestionIsAnswered() {
+    if (!this.questionAnswered) {
+      this.questionAnswered = true;
+      this.quizService.activatedEmitter.next(this.questionAnswered);
+    }
   }
 }
