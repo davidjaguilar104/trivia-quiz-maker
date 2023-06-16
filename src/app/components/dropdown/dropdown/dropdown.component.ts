@@ -3,6 +3,7 @@ import { TriviaCategory, TriviaQuestion } from '../../../models';
 import { TriviaService } from '../../../services/trivia.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { QuizComponent } from '../../quiz/quiz/quiz.component';
+import { QuizService } from 'src/app/services/quiz.service';
 
 @Component({
   selector: 'app-dropdown',
@@ -15,7 +16,7 @@ export class DropdownComponent implements OnInit {
   dropdownForm!: FormGroup;
   allQuestionsAnswered: boolean = false;
 
-  constructor(private triviaService: TriviaService) {}
+  constructor(private triviaService: TriviaService, private quizService: QuizService) {}
 
   ngOnInit(): void {
     this.triviaService.getTriviaCategories().subscribe((data) => {
@@ -27,6 +28,11 @@ export class DropdownComponent implements OnInit {
       category: new FormControl('', Validators.required),
       difficulty: new FormControl('', Validators.required),
     });
+
+    this.quizService.activatedEmitter.subscribe(data => {
+      console.log(data);
+      this.allQuestionsAnswered = data;
+    })
   }
 
   getQuestions(): void {

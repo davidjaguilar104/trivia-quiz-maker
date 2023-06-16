@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TriviaQuestion } from 'src/app/models';
+import { QuizService } from 'src/app/services/quiz.service';
 
 interface Answer {
   isSelected: boolean;
@@ -16,7 +17,7 @@ export class QuizComponent {
   @Input() triviaQuestion: TriviaQuestion = <TriviaQuestion>{};
   questionAnswers: Answer[] = <Answer[]>[];
 
-  constructor() {}
+  constructor(private quizService: QuizService) {}
 
   ngOnInit(): void {
     console.log(this.triviaQuestion);
@@ -65,5 +66,6 @@ export class QuizComponent {
       answer.isSelected = false;
     });
     answer.isSelected = true;
+    this.quizService.activatedEmitter.next(true);
   }
 }
