@@ -35,5 +35,6 @@ export class QuizService {
 
   setQuestionsAnswers(questionAnswers: Answer[]): void {
     this.questionAnswers = questionAnswers; 
+    console.log(this.questionAnswers);
   }
 }
