@@ -37,6 +37,5 @@ export class QuizService {
   setTriviaQuestions(triviaQuestions: TriviaQuestion[]): void {
     this.triviaQuestions = triviaQuestions;
     console.log(this.triviaQuestions);
-    
   }
 }

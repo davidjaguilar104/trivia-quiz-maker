@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DropdownComponent } from '../../dropdown/dropdown/dropdown.component';
+import { QuizService } from 'src/app/services/quiz.service';
+import { TriviaQuestion } from 'src/app/models';
 
 @Component({
   selector: 'app-score',
@@ -7,5 +8,11 @@ import { DropdownComponent } from '../../dropdown/dropdown/dropdown.component';
   styleUrls: ['./score.component.scss'],
 })
 export class ScoreComponent implements OnInit {
-  ngOnInit(): void {}
+  triviaQuestions: TriviaQuestion[] = [];
+
+  constructor(private quizService: QuizService) {}
+
+  ngOnInit(): void {
+    this.triviaQuestions = this.quizService.triviaQuestions;
+  }
 }

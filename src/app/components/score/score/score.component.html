@@ -5,3 +5,9 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="triviaQuestions.length > 0" class="mb-5">
+  <div *ngFor="let tc of triviaQuestions">
+    <app-quiz [triviaQuestion]="tc"></app-quiz>
+  </div>
+</div>
