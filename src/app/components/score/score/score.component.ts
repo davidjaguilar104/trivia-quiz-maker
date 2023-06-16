@@ -14,5 +14,6 @@ export class ScoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.triviaQuestions = this.quizService.triviaQuestions;
+    console.log(this.triviaQuestions);
   }
 }

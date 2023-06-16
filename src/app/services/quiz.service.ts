@@ -34,8 +34,8 @@ export class QuizService {
     this.questionsAnsweredCount = 0;
   }
 
-  setTriviaQuestions(triviaQuestions: TriviaQuestion[]): void {
-    this.triviaQuestions = triviaQuestions;
+  setTriviaQuestions(triviaQuestions: TriviaQuestion): void {
+    this.triviaQuestions.push(triviaQuestions);
     console.log(this.triviaQuestions);
   }
 }
