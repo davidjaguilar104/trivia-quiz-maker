@@ -47,3 +47,8 @@
     <app-quiz [triviaQuestion]="tc"></app-quiz>
   </div>
 </div>
+
+
+<div *ngIf="allQuestionsAnswered" class="col-12">
+  <button class="btn btn-secondary w-100">Submit</button>
+</div>

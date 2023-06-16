@@ -13,6 +13,7 @@ export class DropdownComponent implements OnInit {
   triviaCategories: TriviaCategory[] = [];
   triviaQuestions: TriviaQuestion[] = [];
   dropdownForm!: FormGroup;
+  allQuestionsAnswered: boolean = false;
 
   constructor(private triviaService: TriviaService) {}
 
