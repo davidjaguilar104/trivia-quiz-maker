@@ -13,7 +13,6 @@ export class DropdownComponent implements OnInit {
   triviaCategories: TriviaCategory[] = [];
   triviaQuestions: TriviaQuestion[] = [];
   dropdownForm!: FormGroup;
-  @ViewChildren('question') question!: QuizComponent;
 
   constructor(private triviaService: TriviaService) {}
 
@@ -35,9 +34,5 @@ export class DropdownComponent implements OnInit {
       console.log(data.results);
       this.triviaQuestions = data.results;
     });
-
-    if (this.triviaQuestions) {
-      console.log(this.question);
-    }
   }
 }
