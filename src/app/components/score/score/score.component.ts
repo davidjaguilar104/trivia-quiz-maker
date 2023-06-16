@@ -7,9 +7,5 @@ import { DropdownComponent } from '../../dropdown/dropdown/dropdown.component';
   styleUrls: ['./score.component.scss'],
 })
 export class ScoreComponent implements OnInit {
-  @ViewChild('quiz') quiz!: DropdownComponent;
-
-  ngOnInit(): void {
-    console.log(this.quiz);
-  }
+  ngOnInit(): void {}
 }

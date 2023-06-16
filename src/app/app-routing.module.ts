@@ -4,8 +4,14 @@ import { ScoreComponent } from './components/score/score/score.component';
 import { DropdownComponent } from './components/dropdown/dropdown/dropdown.component';
 
 const routes: Routes = [
-  { path: 'score', component: ScoreComponent },
-  { path: '', component: DropdownComponent, pathMatch: 'full' },
+  {
+    path: '',
+    component: DropdownComponent,
+  },
+  {
+    path: 'score',
+    component: ScoreComponent,
+  },
 ];
 
 @NgModule({
