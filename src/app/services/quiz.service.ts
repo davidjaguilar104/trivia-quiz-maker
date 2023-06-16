@@ -21,4 +21,8 @@ export class QuizService {
       this.activatedEmitter.next(true);
     }
   }
+
+  setQuestionsAnsweredCountToZero() {
+    this.questionsAnsweredCount = 0;
+  }
 }

@@ -33,7 +33,7 @@
         type="submit"
         class="btn btn-secondary w-100"
         id="creatBtn"
-        [disabled]="!dropdownForm.valid"
+        [disabled]="!dropdownForm.valid || allQuestionsAnswered"
         (click)="getQuestions()"
       >
         Create
