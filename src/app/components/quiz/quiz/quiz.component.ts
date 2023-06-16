@@ -57,12 +57,12 @@ export class QuizComponent {
     return combinedAnswers;
   }
 
-  checkAnswer(answer: Answer) {
+  checkAnswer(answer: Answer): void {
     console.log(answer);
     this.toggleIsSelected(answer);
   }
 
-  toggleIsSelected(answer: Answer) {
+  toggleIsSelected(answer: Answer): void {
     this.checkIfQuestionIsAnswered();
 
     this.questionAnswers.forEach((answer) => {
@@ -71,10 +71,14 @@ export class QuizComponent {
     answer.isSelected = true;
   }
 
-  checkIfQuestionIsAnswered() {
+  checkIfQuestionIsAnswered(): void {
     if (!this.questionAnswered) {
       this.questionAnswered = true;
-      this.quizService.activatedEmitter.next(this.questionAnswered);
+      this.incrementQuestionsAnsweredCount();
     }
+  }
+
+  incrementQuestionsAnsweredCount(): void {
+    this.quizService.incrementQuestionsAnsweredCount();
   }
 }
