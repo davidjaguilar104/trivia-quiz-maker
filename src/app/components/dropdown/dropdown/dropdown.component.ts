@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TriviaCategory, TriviaQuestion } from '../../../models';
 import { TriviaService } from '../../../services/trivia.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { QuizComponent } from '../../quiz/quiz/quiz.component';
 import { QuizService } from 'src/app/services/quiz.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dropdown',
@@ -18,7 +18,8 @@ export class DropdownComponent implements OnInit {
 
   constructor(
     private triviaService: TriviaService,
-    private quizService: QuizService
+    private quizService: QuizService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -49,5 +50,9 @@ export class DropdownComponent implements OnInit {
       });
 
     this.quizService.setQuestionsAnsweredCountToZero();
+  }
+
+  submit() {
+    this.router.navigateByUrl("/score");
   }
 }
