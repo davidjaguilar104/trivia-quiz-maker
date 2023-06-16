@@ -23,7 +23,6 @@ export class QuizComponent {
   ngOnInit(): void {
     // console.log(this.triviaQuestion);
     this.combineQuestionAnswers();
-    this.quizService.setQuestionsAnswers(this.questionAnswers);
   }
 
   combineQuestionAnswers(): void {
