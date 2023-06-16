@@ -7,8 +7,9 @@
     background-color: green;
     color: white;
   }
-  &:focus {
-    background-color: green;
-    color: white;
-  }
+}
+
+.selected {
+  background-color: green;
+  color: white;
 }

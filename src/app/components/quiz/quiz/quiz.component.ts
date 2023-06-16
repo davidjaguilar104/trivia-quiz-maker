@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TriviaQuestion } from 'src/app/models';
 
 interface Answer {
+  isSelected: boolean;
   isCorrect: boolean;
   answer: string;
 }
@@ -25,11 +26,11 @@ export class QuizComponent {
   combineQuestionAnswers(): void {
     const combinedAnswers: Answer[] = [];
     this.triviaQuestion.incorrect_answers.forEach((answer) => {
-      combinedAnswers.push({ isCorrect: false, answer });
+      combinedAnswers.push({ isSelected: false, isCorrect: false, answer });
     });
 
     const answer = this.triviaQuestion.correct_answer;
-    combinedAnswers.push({ isCorrect: true, answer });
+    combinedAnswers.push({ isSelected: false, isCorrect: true, answer });
     console.log(combinedAnswers);
     this.questionAnswers = this.randomizeQuestionAnswers(combinedAnswers);
   }
@@ -55,6 +56,14 @@ export class QuizComponent {
   }
 
   checkAnswer(answer: Answer) {
-    console.log(answer.isCorrect);
+    console.log(answer);
+    this.toggleIsSelected(answer);
+  }
+
+  toggleIsSelected(answer: Answer) {
+    this.questionAnswers.forEach((answer) => {
+      answer.isSelected = false;
+    });
+    answer.isSelected = true;
   }
 }
