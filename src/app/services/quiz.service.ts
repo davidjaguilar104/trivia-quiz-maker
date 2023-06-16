@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { TriviaQuestion } from '../models';
 
 interface Answer {
   isSelected: boolean;
@@ -13,7 +14,7 @@ interface Answer {
 export class QuizService {
   questionsAnsweredCount: number = 0;
   activatedEmitter = new Subject<boolean>();
-  questionAnswers: Answer[] = <Answer[]>[];
+  triviaQuestions: TriviaQuestion[] = [];
 
   constructor() {}
 
@@ -33,8 +34,9 @@ export class QuizService {
     this.questionsAnsweredCount = 0;
   }
 
-  setQuestionsAnswers(questionAnswers: Answer[]): void {
-    this.questionAnswers = questionAnswers; 
-    console.log(this.questionAnswers);
+  setTriviaQuestions(triviaQuestions: TriviaQuestion[]): void {
+    this.triviaQuestions = triviaQuestions;
+    console.log(this.triviaQuestions);
+    
   }
 }

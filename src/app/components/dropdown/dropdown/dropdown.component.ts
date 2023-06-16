@@ -46,6 +46,7 @@ export class DropdownComponent implements OnInit {
       .getQuestions(category, difficulty)
       .subscribe(({ results }) => {
         this.triviaQuestions = results;
+        this.quizService.setTriviaQuestions(this.triviaQuestions)
         // console.log(this.triviaQuestions.length);
       });
 
