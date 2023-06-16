@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren } from '@angular/core';
 import { TriviaCategory, TriviaQuestion } from '../../../models';
 import { TriviaService } from '../../../services/trivia.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { QuizComponent } from '../../quiz/quiz/quiz.component';
 
 @Component({
   selector: 'app-dropdown',
@@ -12,6 +13,7 @@ export class DropdownComponent implements OnInit {
   triviaCategories: TriviaCategory[] = [];
   triviaQuestions: TriviaQuestion[] = [];
   dropdownForm!: FormGroup;
+  @ViewChildren('question') question!: QuizComponent;
 
   constructor(private triviaService: TriviaService) {}
 
@@ -33,5 +35,9 @@ export class DropdownComponent implements OnInit {
       console.log(data.results);
       this.triviaQuestions = data.results;
     });
+
+    if (this.triviaQuestions) {
+      console.log(this.question);
+    }
   }
 }
