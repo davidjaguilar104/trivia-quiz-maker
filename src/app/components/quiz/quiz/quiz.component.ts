@@ -24,6 +24,7 @@ export class QuizComponent {
     // console.log(this.triviaQuestion);
     this.combineQuestionAnswers();
     this.quizService.setTriviaQuestions(this.triviaQuestion);
+    this.quizService.setQuestionAnswers(this.questionAnswers)
   }
 
   combineQuestionAnswers(): void {
