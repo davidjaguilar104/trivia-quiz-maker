@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container mb-4">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 mb-2">
       {{ triviaQuestion.question }}
     </div>
 
-    <div class="col-12 col-sm-3" *ngFor="let qa of questionAnswers">
+    <div class="col-12 col-sm-3 mb-3" *ngFor="let qa of questionAnswers">
       <button
         (click)="checkAnswer(qa)"
         class="w-100 answer-btn"
