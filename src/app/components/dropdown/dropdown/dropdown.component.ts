@@ -16,30 +16,35 @@ export class DropdownComponent implements OnInit {
   dropdownForm!: FormGroup;
   allQuestionsAnswered: boolean = false;
 
-  constructor(private triviaService: TriviaService, private quizService: QuizService) {}
+  constructor(
+    private triviaService: TriviaService,
+    private quizService: QuizService
+  ) {}
 
   ngOnInit(): void {
-    this.triviaService.getTriviaCategories().subscribe((data) => {
-      console.log(data.trivia_categories);
-      this.triviaCategories = data.trivia_categories;
-    });
+    this.triviaService
+      .getTriviaCategories()
+      .subscribe(({ trivia_categories }) => {
+        this.triviaCategories = trivia_categories;
+      });
 
     this.dropdownForm = new FormGroup({
       category: new FormControl('', Validators.required),
       difficulty: new FormControl('', Validators.required),
     });
 
-    this.quizService.activatedEmitter.subscribe(data => {
+    this.quizService.activatedEmitter.subscribe((data) => {
       console.log(data);
       this.allQuestionsAnswered = data;
-    })
+    });
   }
 
   getQuestions(): void {
     const { category, difficulty } = this.dropdownForm.value;
-    this.triviaService.getQuestions(category, difficulty).subscribe((data) => {
-      console.log(data.results);
-      this.triviaQuestions = data.results;
-    });
+    this.triviaService
+      .getQuestions(category, difficulty)
+      .subscribe(({ results }) => {
+        this.triviaQuestions = results;
+      });
   }
 }
