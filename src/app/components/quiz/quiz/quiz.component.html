@@ -5,13 +5,7 @@
     </div>
 
     <div class="col-12 col-sm-3" *ngFor="let qa of questionAnswers">
-      <button
-        (click)="checkAnswer(qa)"
-        class="w-100 answer-btn"
-        [ngClass]="{
-          selected: qa.isSelected
-        }"
-      >
+      <button (click)="checkAnswer(qa)" class="w-100 answer-btn">
         {{ qa.answer }}
       </button>
     </div>
