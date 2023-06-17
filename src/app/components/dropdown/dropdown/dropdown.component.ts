@@ -53,6 +53,6 @@ export class DropdownComponent implements OnInit {
   }
 
   submit() {
-    this.router.navigateByUrl('/score');
+    this.router.navigateByUrl('/result');
   }
 }

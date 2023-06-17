@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ScoreComponent } from './components/score/score/score.component';
-import { DropdownComponent } from './components/dropdown/dropdown/dropdown.component';
+import { DropdownComponent, ResultComponent } from './components/index';
 
 const routes: Routes = [
   {
@@ -9,8 +8,8 @@ const routes: Routes = [
     component: DropdownComponent,
   },
   {
-    path: 'score',
-    component: ScoreComponent,
+    path: 'result',
+    component: ResultComponent,
   },
   { path: '**', redirectTo: '' },
 ];

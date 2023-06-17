@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { Answer, TriviaQuestion } from '../../../interfaces/index';
-import { QuizService } from '../../../services/quiz.service';
+import { Answer, TriviaQuestion } from '../../interfaces/index';
+import { QuizService } from '../../services/quiz.service';
 
 @Component({
-  selector: 'app-quiz',
-  templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.scss'],
+  selector: 'app-question',
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.scss'],
 })
-export class QuizComponent {
+export class QuestionComponent {
   @Input() triviaQuestion: TriviaQuestion = <TriviaQuestion>{};
   questionAnswers: Answer[] = <Answer[]>[];
   questionAnswered: boolean = false;

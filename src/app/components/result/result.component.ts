@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { QuizService } from '../../../services/quiz.service';
-import { Answer, TriviaQuestion } from '../../../interfaces/index';
+import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../../services/quiz.service';
+import { Answer, TriviaQuestion } from '../../interfaces';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-score',
-  templateUrl: './score.component.html',
-  styleUrls: ['./score.component.scss'],
+  selector: 'app-result',
+  templateUrl: './result.component.html',
+  styleUrls: ['./result.component.scss'],
 })
-export class ScoreComponent implements OnInit {
+export class ResultComponent implements OnInit {
   triviaQuestions: TriviaQuestion[] = [];
   questionAnswers: Answer[][] = <Answer[][]>[];
   answersCorrect: number = 0;
