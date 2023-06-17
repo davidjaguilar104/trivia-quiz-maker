@@ -7,7 +7,7 @@ import { Answer, TriviaQuestion } from '../interfaces';
 })
 export class QuizService {
   questionsAnsweredCount: number = 0;
-  activatedEmitter = new Subject<boolean>();
+  allQuestionsAnsweredEmitter = new Subject<boolean>();
   triviaQuestions: TriviaQuestion[] = [];
   questionAnswers: Answer[][] = <Answer[][]>[];
 
@@ -21,7 +21,7 @@ export class QuizService {
   isAllQuestionsAnswered(): void {
     const isAllQuestionsAnswered = this.questionsAnsweredCount === 5;
     if (isAllQuestionsAnswered) {
-      this.activatedEmitter.next(true);
+      this.allQuestionsAnsweredEmitter.next(true);
     }
   }
 

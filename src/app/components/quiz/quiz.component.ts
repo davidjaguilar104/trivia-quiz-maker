@@ -34,7 +34,7 @@ export class QuizComponent implements OnInit {
       difficulty: new FormControl('', Validators.required),
     });
 
-    this.quizService.activatedEmitter.subscribe((allQuestionsAnswered) => {
+    this.quizService.allQuestionsAnsweredEmitter.subscribe((allQuestionsAnswered) => {
       this.allQuestionsAnswered = allQuestionsAnswered;
     });
   }
