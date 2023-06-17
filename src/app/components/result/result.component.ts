@@ -21,7 +21,7 @@ export class ResultComponent implements OnInit {
     this.determineAnswersCorrect();
   }
 
-  determineAnswersCorrect() {
+  determineAnswersCorrect(): void {
     for (let i = 0; i < this.questionAnswers.length; i++) {
       for (let j = 0; j < this.questionAnswers[i].length; j++) {
         const isCorrect: boolean = this.questionAnswers[i][j].isCorrect;
@@ -33,7 +33,7 @@ export class ResultComponent implements OnInit {
     }
   }
 
-  restartQuiz() {
+  restartQuiz(): void {
     this.quizService.reInitializeProperties();
     this.router.navigateByUrl('');
   }
