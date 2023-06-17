@@ -15,7 +15,7 @@ interface Answer {
 })
 export class ScoreComponent implements OnInit {
   triviaQuestions: TriviaQuestion[] = [];
-  questionAnswers: Answer[] = <Answer[]>[];
+  questionAnswers: Answer[][] = <Answer[][]>[];
 
   constructor(private quizService: QuizService) {}
 
@@ -27,3 +27,4 @@ export class ScoreComponent implements OnInit {
     
   }
 }
+

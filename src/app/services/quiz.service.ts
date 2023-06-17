@@ -15,7 +15,7 @@ export class QuizService {
   questionsAnsweredCount: number = 0;
   activatedEmitter = new Subject<boolean>();
   triviaQuestions: TriviaQuestion[] = [];
-  questionAnswers: Answer[] = [];
+  questionAnswers: Answer[][] = <Answer[][]>[];
 
   constructor() {}
 
@@ -41,7 +41,7 @@ export class QuizService {
   }
 
   setQuestionAnswers(questionAnswers: Answer[]): void {
-    this.questionAnswers = questionAnswers;
+    this.questionAnswers.push(questionAnswers);
     console.log(this.questionAnswers);
   }
 }
