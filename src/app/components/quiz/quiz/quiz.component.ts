@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Answer, TriviaQuestion } from '../../../models/index';
+import { Answer, TriviaQuestion } from '../../../interfaces/index';
 import { QuizService } from '../../../services/quiz.service';
 
 @Component({

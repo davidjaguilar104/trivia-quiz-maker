@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { QuizService } from '../../../services/quiz.service';
-import { Answer, TriviaQuestion } from '../../../models/index';
+import { Answer, TriviaQuestion } from '../../../interfaces/index';
 import { Router } from '@angular/router';
 
 @Component({

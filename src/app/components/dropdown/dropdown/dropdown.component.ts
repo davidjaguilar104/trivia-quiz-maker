@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TriviaCategory, TriviaQuestion } from '../../../models';
+import { TriviaCategory, TriviaQuestion } from '../../../interfaces';
 import { TriviaService } from '../../../services/trivia.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { QuizService } from '../../../services/quiz.service';
