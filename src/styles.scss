@@ -1,2 +1,18 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 // @import "~bootstrap/scss/bootstrap";
+
+.answer-btn {
+  background-color: white;
+  color: green;
+  border: 1px solid green;
+  border-radius: 5px;
+  &:hover {
+    background-color: green;
+    color: white;
+  }
+}
+
+.selected {
+  background-color: green;
+  color: white;
+}

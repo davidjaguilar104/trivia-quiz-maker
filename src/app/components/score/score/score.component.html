@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col-12 text-center">
       <h2>Results</h2>
@@ -6,10 +6,21 @@
   </div>
 </div>
 
-<div class="container mb-4">
+<div class="container mb-4" *ngFor="let tq of triviaQuestions">
   <div class="row">
-    <div class="col-12 mb-2" *ngFor="let tq of triviaQuestions">
+    <div class="col-12 mb-2">
       {{ tq.question }}
+    </div>
+
+    <div class="col-12 col-sm-3 mb-3" *ngFor="let qa of questionAnswers">
+      <button
+        class="w-100 answer-btn"
+        [ngClass]="{
+          selected: qa.isSelected
+        }"
+      >
+        {{ qa.answer }}
+      </button>
     </div>
   </div>
 </div>
