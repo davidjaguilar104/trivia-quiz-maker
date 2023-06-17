@@ -18,10 +18,10 @@ export class ResultComponent implements OnInit {
   ngOnInit(): void {
     this.triviaQuestions = this.quizService.triviaQuestions;
     this.questionAnswers = this.quizService.questionAnswers;
-    this.determineQuizScore();
+    this.determineAnswersCorrect();
   }
 
-  determineQuizScore() {
+  determineAnswersCorrect() {
     for (let i = 0; i < this.questionAnswers.length; i++) {
       for (let j = 0; j < this.questionAnswers[i].length; j++) {
         const isCorrect: boolean = this.questionAnswers[i][j].isCorrect;
