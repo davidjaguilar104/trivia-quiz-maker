@@ -27,15 +27,15 @@ export class QuestionComponent {
       combinedAnswers.push({ isSelected: false, isCorrect: false, answer });
     });
 
-    const answer = this.triviaQuestion.correct_answer;
+    const answer: string = this.triviaQuestion.correct_answer;
     combinedAnswers.push({ isSelected: false, isCorrect: true, answer });
     // console.log(combinedAnswers);
     this.questionAnswers = this.randomizeQuestionAnswers(combinedAnswers);
   }
 
   randomizeQuestionAnswers(combinedAnswers: Answer[]): Answer[] {
-    let currentIndex = combinedAnswers.length,
-      randomIndex;
+    let currentIndex: number = combinedAnswers.length;
+    let randomIndex: number;
 
     // While there remain elements to shuffle.
     while (currentIndex != 0) {
