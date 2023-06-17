@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { Answer, TriviaQuestion } from '../../../models/index';
-import { QuizService } from '../../../services/quiz.service';
+import { Answer, TriviaQuestion } from '../../interfaces/index';
+import { QuizService } from '../../services/quiz.service';
 
 @Component({
-  selector: 'app-quiz',
-  templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.scss'],
+  selector: 'app-question',
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.scss'],
 })
-export class QuizComponent {
+export class QuestionComponent {
   @Input() triviaQuestion: TriviaQuestion = <TriviaQuestion>{};
   questionAnswers: Answer[] = <Answer[]>[];
   questionAnswered: boolean = false;
@@ -15,7 +15,6 @@ export class QuizComponent {
   constructor(private quizService: QuizService) {}
 
   ngOnInit(): void {
-    // console.log(this.triviaQuestion);
     this.combineQuestionAnswers();
     this.quizService.setTriviaQuestions(this.triviaQuestion);
     this.quizService.setQuestionAnswers(this.questionAnswers);
@@ -27,23 +26,23 @@ export class QuizComponent {
       combinedAnswers.push({ isSelected: false, isCorrect: false, answer });
     });
 
-    const answer = this.triviaQuestion.correct_answer;
+    const answer: string = this.triviaQuestion.correct_answer;
     combinedAnswers.push({ isSelected: false, isCorrect: true, answer });
-    // console.log(combinedAnswers);
     this.questionAnswers = this.randomizeQuestionAnswers(combinedAnswers);
   }
 
   randomizeQuestionAnswers(combinedAnswers: Answer[]): Answer[] {
-    let currentIndex = combinedAnswers.length,
-      randomIndex;
+    let currentIndex: number = combinedAnswers.length;
+    let randomIndex: number;
 
-    // While there remain elements to shuffle.
+    // while there is still elements to shuffle
     while (currentIndex != 0) {
-      // Pick a remaining element.
+      
+      // get random index 
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
-      // And swap it with the current element.
+      // swap it with current element
       [combinedAnswers[currentIndex], combinedAnswers[randomIndex]] = [
         combinedAnswers[randomIndex],
         combinedAnswers[currentIndex],
@@ -54,7 +53,6 @@ export class QuizComponent {
   }
 
   checkAnswer(answer: Answer): void {
-    // console.log(answer);
     this.toggleIsSelected(answer);
   }
 

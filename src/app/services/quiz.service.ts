@@ -1,19 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { TriviaQuestion } from '../models';
-
-interface Answer {
-  isSelected: boolean;
-  isCorrect: boolean;
-  answer: string;
-}
+import { Answer, TriviaQuestion } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuizService {
   questionsAnsweredCount: number = 0;
-  activatedEmitter = new Subject<boolean>();
+  allQuestionsAnsweredEmitter = new Subject<boolean>();
   triviaQuestions: TriviaQuestion[] = [];
   questionAnswers: Answer[][] = <Answer[][]>[];
 
@@ -25,9 +19,9 @@ export class QuizService {
   }
 
   isAllQuestionsAnswered(): void {
-    const isAllQuestionsAnswered = this.questionsAnsweredCount === 5;
+    const isAllQuestionsAnswered: boolean = this.questionsAnsweredCount === 5;
     if (isAllQuestionsAnswered) {
-      this.activatedEmitter.next(true);
+      this.allQuestionsAnsweredEmitter.next(true);
     }
   }
 
@@ -37,15 +31,13 @@ export class QuizService {
 
   setTriviaQuestions(triviaQuestions: TriviaQuestion): void {
     this.triviaQuestions.push(triviaQuestions);
-    console.log(this.triviaQuestions);
   }
 
   setQuestionAnswers(questionAnswers: Answer[]): void {
     this.questionAnswers.push(questionAnswers);
-    console.log(this.questionAnswers);
   }
 
-  reInitializeProperties() {
+  reInitializeProperties(): void {
     this.triviaQuestions = [];
     this.questionAnswers = [];
   }

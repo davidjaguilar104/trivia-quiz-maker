@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TriviaApiResponse, TriviaQuestionsApiResponse } from '../models';
+import { TriviaApiResponse, TriviaQuestionsApiResponse } from '../interfaces';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-
-// added types to return of get calls check if still works then commit
 export class TriviaService {
   triviaCategoriesUrl: string = 'https://opentdb.com/api_category.php';
 
@@ -17,7 +15,10 @@ export class TriviaService {
     return this.httpClient.get<TriviaApiResponse>(this.triviaCategoriesUrl);
   }
 
-  getQuestions(category: number, difficulty: string): Observable<TriviaQuestionsApiResponse> {
+  getQuestions(
+    category: number,
+    difficulty: string
+  ): Observable<TriviaQuestionsApiResponse> {
     const triviaQuestionsAndAnswersUrl: string = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}&type=multiple`;
     return this.httpClient.get<TriviaQuestionsApiResponse>(
       triviaQuestionsAndAnswersUrl

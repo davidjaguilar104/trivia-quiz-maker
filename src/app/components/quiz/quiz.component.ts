@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { TriviaCategory, TriviaQuestion } from '../../../models';
-import { TriviaService } from '../../../services/trivia.service';
+import { TriviaCategory, TriviaQuestion } from '../../interfaces/index';
+import { TriviaService } from '../../services/trivia.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { QuizService } from '../../../services/quiz.service';
+import { QuizService } from '../../services/quiz.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss'],
+  selector: 'app-quiz',
+  templateUrl: './quiz.component.html',
+  styleUrls: ['./quiz.component.scss'],
 })
-export class DropdownComponent implements OnInit {
+export class QuizComponent implements OnInit {
   triviaCategories: TriviaCategory[] = [];
   triviaQuestions: TriviaQuestion[] = [];
   dropdownForm!: FormGroup;
@@ -34,25 +34,27 @@ export class DropdownComponent implements OnInit {
       difficulty: new FormControl('', Validators.required),
     });
 
-    this.quizService.activatedEmitter.subscribe((data) => {
-      // console.log(data);
-      this.allQuestionsAnswered = data;
-    });
+    this.quizService.allQuestionsAnsweredEmitter.subscribe(
+      (allQuestionsAnswered) => {
+        this.allQuestionsAnswered = allQuestionsAnswered;
+      }
+    );
   }
 
   getQuestions(): void {
-    const { category, difficulty } = this.dropdownForm.value;
+    const category: number = this.dropdownForm.controls['category'].value;
+    const difficulty: string = this.dropdownForm.controls['difficulty'].value;
     this.triviaService
       .getQuestions(category, difficulty)
       .subscribe(({ results }) => {
         this.triviaQuestions = results;
-        // console.log(this.triviaQuestions.length);
       });
 
     this.quizService.setQuestionsAnsweredCountToZero();
+    this.quizService.reInitializeProperties();
   }
 
-  submit() {
-    this.router.navigateByUrl('/score');
+  navigateToResultsComponent(): void {
+    this.router.navigateByUrl('/result');
   }
 }

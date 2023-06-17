@@ -4,12 +4,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DropdownComponent } from './components/dropdown/dropdown/dropdown.component';
-import { QuizComponent } from './components/quiz/quiz/quiz.component';
-import { ScoreComponent } from './components/score/score/score.component';
+import {
+  QuizComponent,
+  QuestionComponent,
+  ResultComponent,
+} from './components/index';
 
 @NgModule({
-  declarations: [AppComponent, DropdownComponent, QuizComponent, ScoreComponent],
+  declarations: [
+    AppComponent,
+    QuizComponent,
+    QuestionComponent,
+    ResultComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

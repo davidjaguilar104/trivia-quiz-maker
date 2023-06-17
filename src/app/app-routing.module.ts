@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ScoreComponent } from './components/score/score/score.component';
-import { DropdownComponent } from './components/dropdown/dropdown/dropdown.component';
+import { QuizComponent, ResultComponent } from './components/index';
 
 const routes: Routes = [
   {
     path: '',
-    component: DropdownComponent,
+    component: QuizComponent,
   },
   {
-    path: 'score',
-    component: ScoreComponent,
+    path: 'result',
+    component: ResultComponent,
   },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

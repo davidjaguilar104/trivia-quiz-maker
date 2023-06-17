@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { QuizService } from '../../../services/quiz.service';
-import { Answer, TriviaQuestion } from '../../../models/index';
+import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../../services/quiz.service';
+import { Answer, TriviaQuestion } from '../../interfaces';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-score',
-  templateUrl: './score.component.html',
-  styleUrls: ['./score.component.scss'],
+  selector: 'app-result',
+  templateUrl: './result.component.html',
+  styleUrls: ['./result.component.scss'],
 })
-export class ScoreComponent implements OnInit {
+export class ResultComponent implements OnInit {
   triviaQuestions: TriviaQuestion[] = [];
   questionAnswers: Answer[][] = <Answer[][]>[];
   answersCorrect: number = 0;
@@ -18,13 +18,14 @@ export class ScoreComponent implements OnInit {
   ngOnInit(): void {
     this.triviaQuestions = this.quizService.triviaQuestions;
     this.questionAnswers = this.quizService.questionAnswers;
-    this.determineQuizScore();
+    this.determineAnswersCorrect();
   }
 
-  determineQuizScore() {
+  determineAnswersCorrect(): void {
     for (let i = 0; i < this.questionAnswers.length; i++) {
       for (let j = 0; j < this.questionAnswers[i].length; j++) {
-        const { isCorrect, isSelected } = this.questionAnswers[i][j];
+        const isCorrect: boolean = this.questionAnswers[i][j].isCorrect;
+        const isSelected: boolean = this.questionAnswers[i][j].isSelected;
         if (isCorrect && isSelected) {
           this.answersCorrect++;
         }
@@ -32,7 +33,7 @@ export class ScoreComponent implements OnInit {
     }
   }
 
-  restartQuiz() {
+  restartQuiz(): void {
     this.quizService.reInitializeProperties();
     this.router.navigateByUrl('');
   }

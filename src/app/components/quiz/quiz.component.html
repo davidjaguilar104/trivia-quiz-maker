@@ -33,7 +33,7 @@
         type="submit"
         class="btn btn-secondary w-100"
         id="creatBtn"
-        [disabled]="!dropdownForm.valid || allQuestionsAnswered"
+        [disabled]="!dropdownForm.valid || allQuestionsAnswered || triviaQuestions.length === 5"
         (click)="getQuestions()"
       >
         Create
@@ -44,14 +44,19 @@
 
 <div *ngIf="triviaQuestions.length > 0" class="mb-5">
   <div *ngFor="let tc of triviaQuestions">
-    <app-quiz [triviaQuestion]="tc"></app-quiz>
+    <app-question [triviaQuestion]="tc"></app-question>
   </div>
 </div>
 
 <div class="container" *ngIf="allQuestionsAnswered">
   <div class="row">
     <div class="col-12 mb-5">
-      <button type="submit" class="btn btn-secondary w-100" (click)="submit()">Submit</button>
+      <button
+        class="btn btn-secondary w-100"
+        (click)="navigateToResultsComponent()"
+      >
+        Submit
+      </button>
     </div>
   </div>
 </div>
