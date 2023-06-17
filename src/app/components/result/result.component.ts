@@ -24,7 +24,8 @@ export class ResultComponent implements OnInit {
   determineQuizScore() {
     for (let i = 0; i < this.questionAnswers.length; i++) {
       for (let j = 0; j < this.questionAnswers[i].length; j++) {
-        const { isCorrect, isSelected } = this.questionAnswers[i][j];
+        const isCorrect: boolean = this.questionAnswers[i][j].isCorrect;
+        const isSelected: boolean = this.questionAnswers[i][j].isSelected;
         if (isCorrect && isSelected) {
           this.answersCorrect++;
         }
