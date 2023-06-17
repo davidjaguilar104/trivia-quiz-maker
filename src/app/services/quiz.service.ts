@@ -44,4 +44,9 @@ export class QuizService {
     this.questionAnswers.push(questionAnswers);
     console.log(this.questionAnswers);
   }
+
+  reInitializeProperties() {
+    this.triviaQuestions = [];
+    this.questionAnswers = [];
+  }
 }

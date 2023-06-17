@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { QuizService } from 'src/app/services/quiz.service';
 import { TriviaQuestion } from 'src/app/models';
+import { Router } from '@angular/router';
 
 interface Answer {
   isSelected: boolean;
@@ -18,7 +19,7 @@ export class ScoreComponent implements OnInit {
   questionAnswers: Answer[][] = <Answer[][]>[];
   answersCorrect: number = 0;
 
-  constructor(private quizService: QuizService) {}
+  constructor(private quizService: QuizService, private router: Router) {}
 
   ngOnInit(): void {
     this.triviaQuestions = this.quizService.triviaQuestions;
@@ -38,5 +39,10 @@ export class ScoreComponent implements OnInit {
     }
 
     console.log(this.answersCorrect);
+  }
+
+  restartQuiz() {
+    this.quizService.reInitializeProperties();
+    this.router.navigateByUrl('');
   }
 }
