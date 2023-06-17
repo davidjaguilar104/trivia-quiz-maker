@@ -48,7 +48,6 @@ export class QuizComponent implements OnInit {
       .getQuestions(category, difficulty)
       .subscribe(({ results }) => {
         this.triviaQuestions = results;
-        // console.log(this.triviaQuestions.length);
       });
 
     this.quizService.setQuestionsAnsweredCountToZero();
