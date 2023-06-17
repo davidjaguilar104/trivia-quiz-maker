@@ -35,13 +35,14 @@ export class QuestionComponent {
     let currentIndex: number = combinedAnswers.length;
     let randomIndex: number;
 
-    // While there remain elements to shuffle.
+    // while there is still elements to shuffle
     while (currentIndex != 0) {
-      // Pick a remaining element.
+      
+      // get random index 
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
-      // And swap it with the current element.
+      // swap it with current element
       [combinedAnswers[currentIndex], combinedAnswers[randomIndex]] = [
         combinedAnswers[randomIndex],
         combinedAnswers[currentIndex],
