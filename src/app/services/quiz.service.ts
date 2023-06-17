@@ -19,7 +19,7 @@ export class QuizService {
   }
 
   isAllQuestionsAnswered(): void {
-    const isAllQuestionsAnswered = this.questionsAnsweredCount === 5;
+    const isAllQuestionsAnswered: boolean = this.questionsAnsweredCount === 5;
     if (isAllQuestionsAnswered) {
       this.allQuestionsAnsweredEmitter.next(true);
     }
