@@ -15,9 +15,7 @@
     <div class="col-12 col-sm-3 mb-3" *ngFor="let qa of questionAnswers[i]">
       <button
         class="w-100 answer-btn"
-        [ngClass]="{
-          selected: qa.isCorrect
-        }"
+        [ngClass]="qa.isCorrect ? 'selected' : qa.isSelected && !qa.isCorrect ? 'incorrect' : '' "
       >
         {{ qa.answer }}
       </button>
