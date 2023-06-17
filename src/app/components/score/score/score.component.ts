@@ -16,14 +16,31 @@ interface Answer {
 export class ScoreComponent implements OnInit {
   triviaQuestions: TriviaQuestion[] = [];
   questionAnswers: Answer[][] = <Answer[][]>[];
+  answersCorrect: number = 0;
 
   constructor(private quizService: QuizService) {}
 
   ngOnInit(): void {
     this.triviaQuestions = this.quizService.triviaQuestions;
-    console.log(this.triviaQuestions);
+    // console.log(this.triviaQuestions);
     this.questionAnswers = this.quizService.questionAnswers;
-    console.log(this.questionAnswers);
+    // console.log(this.questionAnswers);
+    this.determineQuizScore();
+  }
+
+
+  determineQuizScore() {
+    for (let i = 0; i < this.questionAnswers.length; i++) {
+      console.log(this.questionAnswers[i]);
+      for (let j = 0; j < this.questionAnswers[i].length; j++) {
+        const { isCorrect, isSelected } = this.questionAnswers[i][j];
+        if (isCorrect && isSelected) {
+          this.answersCorrect++;
+        }
+      }
+    }
+
+    console.log(this.answersCorrect);
     
   }
 }
