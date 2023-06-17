@@ -22,12 +22,9 @@ export class ScoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.triviaQuestions = this.quizService.triviaQuestions;
-    // console.log(this.triviaQuestions);
     this.questionAnswers = this.quizService.questionAnswers;
-    // console.log(this.questionAnswers);
     this.determineQuizScore();
   }
-
 
   determineQuizScore() {
     for (let i = 0; i < this.questionAnswers.length; i++) {
@@ -41,7 +38,5 @@ export class ScoreComponent implements OnInit {
     }
 
     console.log(this.answersCorrect);
-    
   }
 }
-
