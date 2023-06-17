@@ -52,6 +52,7 @@ export class QuizComponent implements OnInit {
       });
 
     this.quizService.setQuestionsAnsweredCountToZero();
+    this.quizService.reInitializeProperties();
   }
 
   navigateToResultsComponent(): void {

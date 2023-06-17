@@ -33,7 +33,7 @@
         type="submit"
         class="btn btn-secondary w-100"
         id="creatBtn"
-        [disabled]="!dropdownForm.valid || allQuestionsAnswered"
+        [disabled]="!dropdownForm.valid || allQuestionsAnswered || triviaQuestions.length === 5"
         (click)="getQuestions()"
       >
         Create
