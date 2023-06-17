@@ -54,7 +54,7 @@ export class QuizComponent implements OnInit {
     this.quizService.setQuestionsAnsweredCountToZero();
   }
 
-  navigateToResultsComponent() {
+  navigateToResultsComponent(): void {
     this.router.navigateByUrl('/result');
   }
 }
