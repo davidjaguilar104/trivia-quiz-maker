@@ -34,13 +34,16 @@ export class QuizComponent implements OnInit {
       difficulty: new FormControl('', Validators.required),
     });
 
-    this.quizService.allQuestionsAnsweredEmitter.subscribe((allQuestionsAnswered) => {
-      this.allQuestionsAnswered = allQuestionsAnswered;
-    });
+    this.quizService.allQuestionsAnsweredEmitter.subscribe(
+      (allQuestionsAnswered) => {
+        this.allQuestionsAnswered = allQuestionsAnswered;
+      }
+    );
   }
 
   getQuestions(): void {
-    const { category, difficulty } = this.dropdownForm.value;
+    const category: number = this.dropdownForm.controls['category'].value;
+    const difficulty: string = this.dropdownForm.controls['difficulty'].value;
     this.triviaService
       .getQuestions(category, difficulty)
       .subscribe(({ results }) => {
