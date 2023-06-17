@@ -15,7 +15,6 @@ export class QuestionComponent {
   constructor(private quizService: QuizService) {}
 
   ngOnInit(): void {
-    // console.log(this.triviaQuestion);
     this.combineQuestionAnswers();
     this.quizService.setTriviaQuestions(this.triviaQuestion);
     this.quizService.setQuestionAnswers(this.questionAnswers);
@@ -29,7 +28,6 @@ export class QuestionComponent {
 
     const answer: string = this.triviaQuestion.correct_answer;
     combinedAnswers.push({ isSelected: false, isCorrect: true, answer });
-    // console.log(combinedAnswers);
     this.questionAnswers = this.randomizeQuestionAnswers(combinedAnswers);
   }
 
@@ -54,7 +52,6 @@ export class QuestionComponent {
   }
 
   checkAnswer(answer: Answer): void {
-    // console.log(answer);
     this.toggleIsSelected(answer);
   }
 
