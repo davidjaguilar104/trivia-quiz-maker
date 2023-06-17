@@ -1,12 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { TriviaQuestion } from 'src/app/models';
-import { QuizService } from 'src/app/services/quiz.service';
-
-interface Answer {
-  isSelected: boolean;
-  isCorrect: boolean;
-  answer: string;
-}
+import { Answer, TriviaQuestion } from '../../../models/index';
+import { QuizService } from '../../../services/quiz.service';
 
 @Component({
   selector: 'app-quiz',
@@ -24,7 +18,7 @@ export class QuizComponent {
     // console.log(this.triviaQuestion);
     this.combineQuestionAnswers();
     this.quizService.setTriviaQuestions(this.triviaQuestion);
-    this.quizService.setQuestionAnswers(this.questionAnswers)
+    this.quizService.setQuestionAnswers(this.questionAnswers);
   }
 
   combineQuestionAnswers(): void {

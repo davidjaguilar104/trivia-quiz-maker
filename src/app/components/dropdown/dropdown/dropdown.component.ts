@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TriviaCategory, TriviaQuestion } from '../../../models';
 import { TriviaService } from '../../../services/trivia.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { QuizService } from 'src/app/services/quiz.service';
+import { QuizService } from '../../../services/quiz.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -53,6 +53,6 @@ export class DropdownComponent implements OnInit {
   }
 
   submit() {
-    this.router.navigateByUrl("/score");
+    this.router.navigateByUrl('/score');
   }
 }

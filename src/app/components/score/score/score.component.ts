@@ -1,13 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { QuizService } from 'src/app/services/quiz.service';
-import { TriviaQuestion } from 'src/app/models';
+import { QuizService } from '../../../services/quiz.service';
+import { Answer, TriviaQuestion } from '../../../models/index';
 import { Router } from '@angular/router';
-
-interface Answer {
-  isSelected: boolean;
-  isCorrect: boolean;
-  answer: string;
-}
 
 @Component({
   selector: 'app-score',
