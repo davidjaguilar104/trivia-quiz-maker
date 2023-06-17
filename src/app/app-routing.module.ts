@@ -12,6 +12,7 @@ const routes: Routes = [
     path: 'score',
     component: ScoreComponent,
   },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
