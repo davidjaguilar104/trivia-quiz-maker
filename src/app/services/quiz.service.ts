@@ -39,7 +39,7 @@ export class QuizService {
     console.log(this.questionAnswers);
   }
 
-  reInitializeProperties() {
+  reInitializeProperties(): void {
     this.triviaQuestions = [];
     this.questionAnswers = [];
   }
