@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DropdownComponent, ResultComponent } from './components/index';
+import { QuizComponent, ResultComponent } from './components/index';
 
 const routes: Routes = [
   {
     path: '',
-    component: DropdownComponent,
+    component: QuizComponent,
   },
   {
     path: 'result',

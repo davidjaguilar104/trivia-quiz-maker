@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { TriviaCategory, TriviaQuestion } from '../../../interfaces';
-import { TriviaService } from '../../../services/trivia.service';
+import { TriviaCategory, TriviaQuestion } from '../../interfaces/index';
+import { TriviaService } from '../../services/trivia.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { QuizService } from '../../../services/quiz.service';
+import { QuizService } from '../../services/quiz.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss'],
+  selector: 'app-quiz',
+  templateUrl: './quiz.component.html',
+  styleUrls: ['./quiz.component.scss'],
 })
-export class DropdownComponent implements OnInit {
+export class QuizComponent implements OnInit {
   triviaCategories: TriviaCategory[] = [];
   triviaQuestions: TriviaQuestion[] = [];
   dropdownForm!: FormGroup;
