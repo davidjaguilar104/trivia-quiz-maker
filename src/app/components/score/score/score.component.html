@@ -1,4 +1,4 @@
-<div class="container mt-5 mb-5">
+<div class="container mt-5 mb-5" *ngIf="triviaQuestions.length && questionAnswers.length">
   <div class="row">
     <div class="col-12 text-center">
       <h2>Results</h2>
@@ -6,33 +6,36 @@
   </div>
 </div>
 
-<div class="container mb-5" *ngFor="let tq of triviaQuestions; index as i">
-  <div class="row">
-    <div class="col-12 mb-2">
-      {{ tq.question }}
-    </div>
+<div *ngIf="triviaQuestions.length && questionAnswers.length">
+  <div class="container mb-5" *ngFor="let tq of triviaQuestions; index as i">
+    <div class="row">
+      <div class="col-12 mb-2">
+        {{ tq.question }}
+      </div>
 
-    <div class="col-12 col-sm-3 mb-3" *ngFor="let qa of questionAnswers[i]">
-      <button
-        class="w-100 answer-btn"
-        [ngClass]="
-          qa.isCorrect
-            ? 'selected'
-            : qa.isSelected && !qa.isCorrect
-            ? 'incorrect'
-            : ''
-        "
-      >
-        {{ qa.answer }}
-      </button>
+      <div class="col-12 col-sm-3 mb-3" *ngFor="let qa of questionAnswers[i]">
+        <button
+          class="w-100 answer-btn"
+          [ngClass]="
+            qa.isCorrect
+              ? 'selected'
+              : qa.isSelected && !qa.isCorrect
+              ? 'incorrect'
+              : ''
+          "
+        >
+          {{ qa.answer }}
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="container mb-5">
   <div class="row">
-    <div class="col-12 mb-5">
-      <p class="text-center"
+    <div class="col-12 mb-5" *ngIf="triviaQuestions.length && questionAnswers.length">
+      <p
+        class="text-center"
         [ngClass]="
           answersCorrect <= 1
             ? 'red-bg'
