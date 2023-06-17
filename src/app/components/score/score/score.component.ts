@@ -29,7 +29,6 @@ export class ScoreComponent implements OnInit {
 
   determineQuizScore() {
     for (let i = 0; i < this.questionAnswers.length; i++) {
-      console.log(this.questionAnswers[i]);
       for (let j = 0; j < this.questionAnswers[i].length; j++) {
         const { isCorrect, isSelected } = this.questionAnswers[i][j];
         if (isCorrect && isSelected) {
@@ -37,8 +36,6 @@ export class ScoreComponent implements OnInit {
         }
       }
     }
-
-    console.log(this.answersCorrect);
   }
 
   restartQuiz() {
