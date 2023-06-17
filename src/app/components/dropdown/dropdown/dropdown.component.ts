@@ -52,7 +52,7 @@ export class DropdownComponent implements OnInit {
     this.quizService.setQuestionsAnsweredCountToZero();
   }
 
-  submit() {
+  navigateToResultsComponent() {
     this.router.navigateByUrl('/result');
   }
 }
