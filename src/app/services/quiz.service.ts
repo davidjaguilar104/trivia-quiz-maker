@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { TriviaQuestion } from '../models';
-
-interface Answer {
-  isSelected: boolean;
-  isCorrect: boolean;
-  answer: string;
-}
+import { Answer, TriviaQuestion } from '../models';
 
 @Injectable({
   providedIn: 'root',
