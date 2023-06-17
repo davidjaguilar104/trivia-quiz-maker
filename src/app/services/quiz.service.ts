@@ -31,12 +31,10 @@ export class QuizService {
 
   setTriviaQuestions(triviaQuestions: TriviaQuestion): void {
     this.triviaQuestions.push(triviaQuestions);
-    console.log(this.triviaQuestions);
   }
 
   setQuestionAnswers(questionAnswers: Answer[]): void {
     this.questionAnswers.push(questionAnswers);
-    console.log(this.questionAnswers);
   }
 
   reInitializeProperties(): void {
