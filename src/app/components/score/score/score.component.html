@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="container mb-5" *ngFor="let tq of triviaQuestions; index as i;">
+<div class="container mb-5" *ngFor="let tq of triviaQuestions; index as i">
   <div class="row">
     <div class="col-12 mb-2">
       {{ tq.question }}
@@ -15,7 +15,13 @@
     <div class="col-12 col-sm-3 mb-3" *ngFor="let qa of questionAnswers[i]">
       <button
         class="w-100 answer-btn"
-        [ngClass]="qa.isCorrect ? 'selected' : qa.isSelected && !qa.isCorrect ? 'incorrect' : '' "
+        [ngClass]="
+          qa.isCorrect
+            ? 'selected'
+            : qa.isSelected && !qa.isCorrect
+            ? 'incorrect'
+            : ''
+        "
       >
         {{ qa.answer }}
       </button>
@@ -23,11 +29,19 @@
   </div>
 </div>
 
-
 <div class="container mb-5">
   <div class="row">
-    <div class="col-12 text-center">
-     You scored {{ answersCorrect }} out of 5
+    <div
+      class="col-12 text-center"
+      [ngClass]="
+        answersCorrect <= 1
+          ? 'red-bg'
+          : answersCorrect <= 3
+          ? 'yellow-bg'
+          : 'green-bg'
+      "
+    >
+      You scored {{ answersCorrect }} out of 5
     </div>
   </div>
 </div>
